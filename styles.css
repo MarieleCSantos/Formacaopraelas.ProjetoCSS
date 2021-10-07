@@ -1,0 +1,337 @@
+/* Definições do CSS
+- As primeiras definições a serem feitas são as que serão usadas em todo o site
+- Padding e margin: deixamos zerado pois por default é adicionado um valor para cada um deles e com isso quando adicionamos valores eles são somados
+
+"box-sizing: border-box" - faz com que cada conteúdo fique dentro do seu box */
+
+ /* Cores, temos 3 formas principais:
+ - colocar o nome da cor
+ - hex - por um código do tipo #ff9999
+ - rgb/rgba - por um código do tipo 00,00,00, rgba tem um atributo de opacidade que pode ser regulado ao colocar */
+
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   /*color: #ff66ff;*/
+   color:rgb(255, 102, 255);
+   font-family: 'Poppins', sans-serif;
+}
+
+ /*"list-style: none;" - as uls já estavam sem estilo, porém reiteramos isso
+ "font-size: 15px;" - define o tamanho da lista
+ "font-style: italic;" - define o estilo da fonte */
+ul{
+  list-style: none;
+  font-size: 15px;
+  font-style: italic;
+}
+
+ /*text-decoration: none;" retira o sublinhado e outras formatações dos links
+"font-weight: 700;" - altera o peso da fonte */
+a{
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* imagens de background:
+https://www.pexels.com/pt-br/
+
+body{
+background-image: url(pexels-philippe-donn-1257860.jpg);
+background-repeat: no-repeat;
+background-position: center center fixed;
+}
+
+"background-image: url()" - seleciona imagem disponível no próprio pc, caso esteja no mesmo diretório colocar um . dentro do (), caso esteja em outro colocar .. dentro do () 
+
+"background-repeat: no-repeat" - nao repetir a imagem;
+
+"background-position: center center fixed; " - centralizar horizontalmente, verticalmente e fixa 
+
+podemos juntar todas as propriedades de background em 1 linha só, porém para isso precisamos adicionar o "background-size: cover;"
+
+"background-size: cover;" - cover especifica que a imagem de fundo deve ser dimensionada para que seja o menor possível e ao mesmo tempo ambas as dimensões serem maiores ou igual à dimensão correspondente do recipiente. Essa propriedade é importante para adaptar o site às diferentes telas*/
+
+body{
+  background: url(pexels-philippe-donn-1257860.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* background com cor sólida
+body{
+ background-color: #fff;
+} */
+
+/* background com gradiente
+https://uigradients.com/
+https://mycolor.space/gradient
+
+body{
+  background: linear-gradient(90deg, #0F2027, #203A43, #2C5364)
+}*/
+
+/* Aplicando fontes externas ao CSS
+https://fonts.google.com/
+1 - Selecionar fontes no google fonts
+2 - Copiar o link e linkar no HTML
+3 - Copiar a declaração do google e inserir no CSS "font-family: 'Roboto', sans-serif;" */
+
+/*Dando destaque ao nome e à profissão.
+"font-size: 60px" - altera o tamanho da fonte
+"text-align: center;" - vai colocar todo o conteúdo do container no centro*/
+
+/*"display: flex" - na header é aplicado à logo e à ul, porém deve-se dar novamente um "display: flex" dentro da ul para poder aplicar nela. Além disso, para mexer em cada item da ul deve-se selecionar "li"*/
+
+/* Bordas no CSS:
+ "border-bottom: 2px solid #fff;" - define uma borda no header, o bottom faz com que somente a parte de baixo dela seja exibida.
+ 
+  "box-shadow: 1px 1px 10px 1px #fff;" - define uma borda com blur, 1º: largura da cor, 2º offset horiz., 3º offset vert., 4º blur, 5º cor
+  
+  "border-bottom: 15px ridge #fff;" - dá um efeito 3d
+  
+  "header ul li:last-child{" - pega o ultimo item da lista*/
+
+header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  /* border-bottom: 2px solid #fff; */
+  box-shadow: 1px 1px 10px 1px rgb(0,0,0);
+  /* border-bottom: 15px ridge #fff; */
+  margin-bottom: 45px;
+}
+
+header ul{
+  display: flex;
+}
+
+header ul li{
+  padding: 5px;
+  border-left: 2px dashed #fff;
+}
+
+header ul li a{
+  transition: 300ms;
+}
+
+/* Para modificar os links da li devemos colocar a: */
+
+header ul li a:hover{
+  color: deeppink;
+  text-decoration: underline;
+}
+
+
+header ul li:last-child{
+  border-right: 2px dashed #fff;
+}
+
+/* Para a animação funcionar deve usar o "@keyframes" e o "to" apos, ele chama a animação. */
+
+#star{
+  font-size: 35px;
+  cursor: pointer;
+  animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+#animation{
+  transition: 300ms;
+}
+
+.rotate{
+  transform: rotate(180deg);
+  transition: 300ms;
+}
+
+.active{
+  display: block !important;
+}
+
+.container{
+  text-align: center;
+}
+
+.container .name h1{
+  font-size: 60px;
+}
+
+.container .name h5{
+  font-size: 30px;
+}
+
+/* Width
+"width" - diz respeito à largura, quando a definimos a fixamos, o site nao conseguirá aumentar ou diminuir conforme a responsividade
+"max-width" - o elemento tem a capacidade de ficar maior ou menor
+"min-width" - largura mínima, não pode diminuir mais do que o valor atribuído
+
+foi usado o max-width: 600px pois o texto estava muito "espalhado"
+
+largura do form - é 40% da largura do container (div pai)
+largura do input - é 50% da largura do form
+largura do button - é 15% da largura do for
+"margin: 0 auto;" - leva todos para o centro
+*/
+
+
+#about p{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form{
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 30px;
+  /* border: thick double #fff;
+  padding: 25px; */
+}
+
+.form input{
+  width: 50%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.form button{
+  width: 15%;
+  padding: 5px 10px;
+  background: linear-gradient(to right, purple 50%, rgb(255, 102, 255) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition:  all 300ms ease-out;
+  border-radius: 0px 5px 5px 0px;
+  margin-top: 20px;
+  margin-left: -5px;
+}
+
+.form button:hover{
+  background-position: left bottom;
+}
+
+/* .form button:hover{
+  background-color: deeppink;
+  color: #fff;
+  transition: 300ms;
+} */
+
+
+
+/* FLEXBOX:
+forma dinâmica de criar um layout com blocos de tamanhos independentes e variáveis (dinâmicos). Permite que agrupemos de forma flexível vários conteúdos dentro do container mãe.
+Por padrão ele coloca todos elementos na mesma linha, para quebrar usamos flex-wrap: wrap.
+
+Ajuste de conteúdo com o flexbox (principais maneiras):
+- "justify-content": justifica o conteúdo de diferentes possibilidades
+- "align-itens": alinha itens
+- "align-content": alinha o conteúdo, precisa ter +de 1 linha para se diferenciar do align-itens
+
+-"flex-basis": 100% deixa todos os blocos do mesmo tamanho
+
+- No projeto usaremos flexbox no header e na ul*/
+
+/* Grid layout: uma nova forma de fazer layouts dinâmicos. Através dele é possível fazer o header e o footer. 
+Tem um guia completo para grid e para flexbox no CSS tricks */
+
+
+/* Hover:  é uma pseudoclassed do CSS, quando a pessoa passa o mouse um item se modifica*/
+
+/* Animações em CSS
+https://animista.net/
+- o ícone do font awesome funciona como um texto.
+
+Animações com uso de JavaScript:
+1º Criamos o rotate
+.rotate{
+  transform: rotate(180deg);
+  transition: 300ms;
+} 
+2º Vinculamos ao HTML: adicionar "id="animation" ao "i" no bloco star
+3º abaixo do main faz o script de JavaScript,
+"document.getElementById" busca o elemento pela id,
+"classList.toggle" - classList pega a lista de classes, toggle se nao tiver classe adicionar, se tiver remove.
+  <script>
+    function displayAbout(){
+      var star = document.getElementById('animation');
+      star.classList.toggle('rotate');
+    }
+  </script>
+
+4º mencionar a função no mesmo div da star, <div onclick="displayAbout()" id="star">
+
+5º colocar transition na id animation também
+#animation{
+  transition: 300ms;
+}
+
+Para esconder o texto:
+1º criar um seletor "active"
+.active{
+  display: block !important;
+}
+
+2º adicionar mesma função anterior no html substituindo novas identificações
+
+ <script>
+    function displayAbout(){
+      var star = document.getElementById('animation');
+      star.classList.toggle('rotate');
+      var display = document.getElementById('about');
+      display.classList.toggle('active');
+    }
+  </script>
+
+3º como usamos o display inline ele é absoluto, então é preciso que seja adicionado o "!important" dentro da declaração do active.
+  */
+
+/* Ajustes finais:
+- foram adicionadas margens para ficar agradável */
+
+/* Ajustes de responsividade:
+1º abrir o "inspecionar" e ir em "toogle device toolbar"
+
+- o flexbox é interessante para o design responsivo pois vai adaptando
+- normalmente as definições para mobile são escritas abaixo do restante do código
+
+- através da análise percebeu-se que será necessário mexer nas fontes e no botão
+
+- para o parágrafo colocamos 80% pois assim ele dá uma margem e pega 80%  
+ #about p{
+    max-width: 80%;
+  }
+  
+- mexemos em 2 tipos de tela pois no ipad só tinha problema com o botão e no celular tinha este e mais outros problemas*/
+
+@media only screen and (max-width: 768px){
+  .form{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .container .name h1{
+    font-size: 30px;
+  }
+  
+  .container .name h5{
+    font-size: 18px;
+  }
+
+  #about p{
+    max-width: 80%;
+    text-align: justify;
+  }
+}
+

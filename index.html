@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Colocar a lingua pra português -->
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Colocar o link que vem do fontawesome > usuário > font awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Título que aparece na janela -->
+  <title>Mariele Santos</title>
+</head>
+<body>
+  <header>
+    <div>
+      <!-- Logo do site e texto alternativo -->
+      <img src="LogoSite.JPG" alt="Mariele Santos">
+    </div>
+    <!-- Para colocar os links usamos uma lista. 
+    target="_blank" - este comando faz com que o caminho seja aberto em nova aba -->
+    <ul>
+      <li>
+        <!-- link para o github -->
+        <a target="_blank" href="https://github.com/MarieleCSantos">github</a>
+      </li>
+      <!-- link para o email, importante colocar o "mailto:" -->
+      <li><a target="_blank" href="mailto:marielecsantos@outlook.com">email</a></li>
+      <!-- link direto para o whatsapp -->
+      <li><a target="_blank" href="https://wa.me/47999999999">whatsapp</a></li>
+    </ul>
+  </header>
+  <main>
+    <section class="container">
+      <!-- "class" indica um grupo de elemento -->
+      <div class="name">
+        <h1>Mariele Santos</h1>
+        <h5>Aspirante a developer</h5>
+      </div>
+      <!-- "id" indica um elemento único, no caso o símbolo é único -->
+      <div onclick="displayAbout()" id="star">
+        <i id="animation" class="fas fa-star-half-alt"></i>
+      </div>
+
+      <div style="display: none;" id="about">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus quidem earum quis voluptatum! Exercitationem dolor maiores qui eum laudantium totam, vel natus ullam veritatis velit eos, aperiam alias.
+        </p>
+        
+        <!-- essa div a seguir foi criada para poder adicionarmos o formulário onde a pessoa deixa seu email 
+        "form action" - defines what should happen to data when a form is submitted on a web page
+        "input" - é usado para criar controles interativos para formulários para receber dados do usuário
+        "type=text" - type define o tipo, text - cria um campo de texto com uma só linha; quebras de linha são automaticamente removidas do valor entrado.
+        "placeholder" - dá uma dica para o usuário do que ele pode inserir no controle-->
+      </div>
+      <div class="form">
+        <div>
+          <p>deixe seu contato!</p>
+        </div>
+        <form action="">
+          <input type="text" placeholder="seu melhor e-mail :)">
+          <button>enviar!</button>
+        </form>
+      </div>  
+      
+
+    </section>
+  </main>
+
+  <script>
+    function displayAbout(){
+      var star = document.getElementById('animation');
+      star.classList.toggle('rotate');
+      var display = document.getElementById('about');
+      display.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
